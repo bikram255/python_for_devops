@@ -1,0 +1,4 @@
+# It will generate the instances with details in table format
+aws ec2 describe-instances \
+  --query "Reservations[*].Instances[*].[Tags[?Key=='Name']|[0].Value,InstanceId,InstanceType,State.Name,PublicIpAddress]" \
+  --output table
