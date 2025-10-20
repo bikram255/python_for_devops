@@ -5,7 +5,7 @@ ec2 = boto3.client('ec2')
 iam = boto3.client('iam')
 
 # Step 1: Create or get IAM role
-role_name = 'kops_role'
+role_name = 'kops_role'    # This is my role name, you can change it as needed
 
 try:
     iam.get_role(RoleName=role_name)
@@ -31,7 +31,7 @@ except iam.exceptions.NoSuchEntityException:
         PolicyArn='arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess'  # Example policy
     )
 
-# Step 2: Create Instance Profile (if not exists)
+# Step 2: Create Instance Profile (if not exists)   #you can change profile name as needed
 profile_name = role_name + '-InstanceProfile'
 
 try:
